@@ -1,7 +1,7 @@
-function [fwd] = quic_calc_fd(mot,rot_inds)
+function [fwd] = quick_calc_fd(mot,rot_inds)
 
 if nargin < 2
-   rot_inds = [ 0 0 0 1 1 1 ] ;  
+   rot_inds = logical([ 0 0 0 1 1 1 ]) ;  
 end
 
 radius = 50; 
