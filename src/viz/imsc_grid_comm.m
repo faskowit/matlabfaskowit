@@ -23,25 +23,9 @@ if ~exist('names','var') || isempty(names)
    names = [] ; 
 end
 
-
+% grid comms
 [X,Y,INDSORT] = grid_communities(ca) ;
 h = imagesc(dat(INDSORT,INDSORT)) ;
-hold on;  
-plot(X,Y,'Color',color,'linewidth',lineWidth) ;
-hold off;
-    
-if ~isempty(names)
-    
-    if length(unique(ca))~=length(names)
-        error('names must have entry for each community')
-    end
-    
-    ax = gca ;
-    Y1 =  Y(1:6:end) ; Y2 =  Y(2:6:end) ;
-    Y3 = (Y2+Y1) ./ 2 ;
-    ax.YTick = Y3 ; 
-    ax.YTickLabel = names ;
-end
 
 %% off diagonal lines
 
@@ -53,24 +37,46 @@ if offD
     % plot off diagonal
     for idx = 1:(length(breaks)-1)
 
-        lineWidth = 0.5;
+        odlineWidth = 0.5;
         %offDiagColor = [1 0 0 0.25] ; 
         offDiagColor = [1 1 1 0.55] ; 
 
         % vertical   
         plot([breaks(idx),breaks(idx)],[breaks(idx+1),breaks(end)],...
-            'Color',offDiagColor,'LineWidth',lineWidth);
+            'Color',offDiagColor,'LineWidth',odlineWidth);
         if idx > 1
             plot([breaks(idx),breaks(idx)],[-0.5,breaks(idx-1)],...
-                'Color',offDiagColor,'LineWidth',lineWidth);
+                'Color',offDiagColor,'LineWidth',odlineWidth);
         end
         % horizontal
         plot([breaks(idx+1),breaks(end)],[breaks(idx),breaks(idx)],...
-            'Color',offDiagColor,'LineWidth',lineWidth);
+            'Color',offDiagColor,'LineWidth',odlineWidth);
         if idx > 1
             plot([-.5,breaks(idx-1)],[breaks(idx),breaks(idx)],...
-                'Color',offDiagColor,'LineWidth',lineWidth);
+                'Color',offDiagColor,'LineWidth',odlineWidth);
         end
     end  
     hold off
+end
+
+%% on-diagonal lines
+
+hold on;  
+pp = plot(X,Y,'Color',color,'linewidth',lineWidth) ;
+uistack(pp,'top');
+hold off;
+
+%% name 
+
+if ~isempty(names)
+    
+    if length(unique(ca))~=length(names)
+        error('names must have entry for each community')
+    end
+    
+    ax = gca ;
+    Y1 =  Y(1:6:end) ; Y2 =  Y(2:6:end) ;
+    Y3 = (Y2+Y1) ./ 2 ;
+    ax.YTick = Y3 ; 
+    ax.YTickLabel = names ;
 end
