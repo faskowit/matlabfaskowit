@@ -1,7 +1,7 @@
-function [div] = netpd_compare_two_wei(M1,M2,wei_trans)
+function [div,B1,B2,ebins] = netpd_compare_two_wei(M1,M2,wei_trans)
 
 if nargin < 3
-    wei_trans = [] ;
+    wei_trans = 'inv' ;
 end
 
 % get two distance mats

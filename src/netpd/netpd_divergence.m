@@ -5,6 +5,7 @@ BG = BG_0 .* 1 ;
 BH = BH_0 .* 1 ;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% https://github.com/bagrow/portraits/blob/master/B_Distance.m#L11
 % pad with zeros to make same size
 
 [bg_n, bg_m] = size(BG_0);
@@ -25,6 +26,7 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% https://github.com/bagrow/network-portrait-divergence/blob/master/portrait_divergence.py#L187
 
 [L,K] = size(BG) ;
 V = repmat(0:(K-1),[L 1]) ;
