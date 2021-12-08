@@ -8,5 +8,7 @@ end
 b = length(M) ;
 s = sqrt(2 * b + 0.25) - 0.5 + K;
 a = triu(ones(s),K) ;
-a(~~a) = M' ;
-aFull = a + triu(a,1)';
+a(~~a) = M ;
+if nargout > 1
+    aFull = a + triu(a,1)';
+end
