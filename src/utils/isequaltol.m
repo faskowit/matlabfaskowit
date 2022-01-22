@@ -1,7 +1,7 @@
 function [b] = isequaltol(x1,x2,tol)
 
 if nargin < 3
-    tol = 1e-8
+    tol = 1e-8 ;
     warning(['setting tol to :' num2str(tol) ])
 end
 
