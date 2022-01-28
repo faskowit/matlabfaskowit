@@ -1,0 +1,3 @@
+[submodule "external/cmap"]
+	path = external/cmap
+	url = https://github.com/tsipkens/cmap.git
