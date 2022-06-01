@@ -1,4 +1,4 @@
-function [h, INDSORT] = imsc_grid_comm(dat,ca,lineWidth,color,offD,names)
+function [h, INDSORT, Nameticks] = imsc_grid_comm(dat,ca,lineWidth,color,offD,names)
 % 
 % dat = your data
 % ca = community affliation of your vector
@@ -61,12 +61,17 @@ end
 
 %% on-diagonal lines
 
-hold on;  
-pp = plot(X,Y,'Color',color,'linewidth',lineWidth) ;
-uistack(pp,'top');
-hold off;
+if lineWidth > 0
+    hold on;  
+    pp = plot(X,Y,'Color',color,'linewidth',lineWidth) ;
+    uistack(pp,'top');
+    hold off;
+end
 
 %% name 
+
+Y1 =  Y(1:6:end) ; Y2 =  Y(2:6:end) ;
+Nameticks = (Y2+Y1) ./ 2 ;
 
 if ~isempty(names)
     
@@ -75,8 +80,6 @@ if ~isempty(names)
     end
     
     ax = gca ;
-    Y1 =  Y(1:6:end) ; Y2 =  Y(2:6:end) ;
-    Y3 = (Y2+Y1) ./ 2 ;
-    ax.YTick = Y3 ; 
+    ax.YTick = Nameticks ; 
     ax.YTickLabel = names ;
 end
