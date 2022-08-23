@@ -1,0 +1,8 @@
+[submodule "cmap"]
+	path = cmap
+	url = https://github.com/tsipkens/cmap
+	branch = master
+[submodule "cmap/cmap"]
+	path = cmap/cmap
+	url = https://github.com/tsipkens/cmap
+	branch = master
