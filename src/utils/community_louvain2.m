@@ -1,4 +1,4 @@
-function [M,Q]=community_louvain(W,gamma,M0,B)
+function [M,Q]=community_louvain2(W,gamma,M0,B)
 %COMMUNITY_LOUVAIN     Optimal community structure
 %
 %   M     = community_louvain(W);

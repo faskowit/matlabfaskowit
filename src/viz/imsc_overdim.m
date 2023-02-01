@@ -28,8 +28,11 @@ for idx = 1:sz_iterdim
     elseif ~isempty(tt)
         title(tt{idx})
     end
-    if cb
+    if sum(abs(cb),'all')>0
        colorbar 
+       if length(cb) == 2
+            clim(cb)
+       end
     end
     
     waitforbuttonpress

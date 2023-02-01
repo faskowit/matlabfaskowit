@@ -29,7 +29,7 @@ h = imagesc(dat(INDSORT,INDSORT)) ;
 
 %% off diagonal lines
 
-if offD
+if sum(offD) > 0
 
     hold on
     breaks = X(3:6:end) ;
@@ -39,7 +39,11 @@ if offD
 
         odlineWidth = 0.5;
         %offDiagColor = [1 0 0 0.25] ; 
-        offDiagColor = [1 1 1 0.55] ; 
+        if length(offD) > 1
+            offDiagColor = offD ;
+        else
+            offDiagColor = [1 1 1 0.55] ; 
+        end
 
         % vertical   
         plot([breaks(idx),breaks(idx)],[breaks(idx+1),breaks(end)],...
