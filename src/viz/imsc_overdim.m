@@ -1,37 +1,38 @@
-function [h] = imsc_overdim(X,dd,tt,cb,varargin)
+function [h] = imsc_overdim(X,ddim,ttile,ccolorbar,varargin)
 
 if nargin < 2 
    error('need 2 inputs') 
 end
 
-if ~exist('cb','var') || isempty(cb)
-    cb = 0 ;
+if ~exist('ccolorbar','var') || isempty(ccolorbar)
+    ccolorbar = 0 ;
+    disp('feffeffe')
 end
     
-if ~exist('tt','var')
-   tt = [] ; 
+if ~exist('ttile','var')
+   ttile = [] ; 
 end
 
 nd = ndims(X) ;
 inds = repmat({':'},1,nd) ;
-sz_iterdim = size(X,dd) ;
+sz_iterdim = size(X,ddim) ;
 
 for idx = 1:sz_iterdim
 
     
     sl_inds = inds ;
-    sl_inds{dd} = idx ;
+    sl_inds{ddim} = idx ;
     
     h = imagesc(squeeze(X(sl_inds{:})),varargin{:}) ;
-    if strcmp(tt,'num')
+    if strcmp(ttile,'num')
         title(idx)
-    elseif ~isempty(tt)
-        title(tt{idx})
+    elseif ~isempty(ttile)
+        title(ttile{idx})
     end
-    if sum(abs(cb),'all')>0
+    if sum(abs(ccolorbar),'all')>0
        colorbar 
-       if length(cb) == 2
-            clim(cb)
+       if length(ccolorbar) == 2
+            clim(ccolorbar)
        end
     end
     

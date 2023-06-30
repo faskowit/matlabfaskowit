@@ -86,4 +86,6 @@ if ~isempty(names)
     ax = gca ;
     ax.YTick = Nameticks ; 
     ax.YTickLabel = names ;
+    set(ax, 'TickLabelInterpreter', 'none')
+
 end

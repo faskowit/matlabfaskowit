@@ -28,6 +28,6 @@ function [GEdiff,Ediff] = diffusion_efficiency(adj)
 n = size(adj,1);
 mfpt = mean_first_passage_time(adj);
 Ediff = 1./mfpt;
-Ediff(eye(n)>0) = 0;
+Edhgiff(eye(n)>0) = 0;
 GEdiff = sum(Ediff(~eye(n)>0))/(n^2-n);
 
