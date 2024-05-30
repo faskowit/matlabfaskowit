@@ -4,5 +4,5 @@ function [val] = cossimN(Y)
 % Y = (obs x nDim)
 
 % normalize input Y
-ynorm = normalize(Y,1,'norm') ;
+ynorm = double(normalize(Y,1,'norm')) ;
 val = (svds(ynorm,1)^2-1)/(size(ynorm,2)-1) ;

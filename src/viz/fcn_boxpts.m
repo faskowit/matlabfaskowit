@@ -18,7 +18,7 @@ if sz(2) > 1
     lab = lab(:);
 end
 
-if isempty(cmap)
+if nargin < 3 || isempty(cmap)
     cmap = jet(max(lab));
 end
 
@@ -31,6 +31,7 @@ pointSZ = 100 ;
 % f = fcn_rickplot([2,2,4,2]);
 % ax = axes;
 % hold(ax,'on');
+% clf
 hold on
 
 u = unique(lab);
@@ -71,7 +72,7 @@ for j = 1:length(u)
     xvals = [j*ones(1,2), nan, j*ones(1,2)];
     yvals = [prct(1),whisk1,nan,prct(3),whisk2];
     hdl.whiskerhandle{j} = plot(xvals,yvals,'color','k','linewidth',0.75);
-    
+       
 end
 set(gca,...
     'xlim',[-2*wid + 1,length(u) + 2*wid],...

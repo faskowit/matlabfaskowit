@@ -4,8 +4,8 @@ n = size(W,1) ;
 
 if ~exist('M','var') || isempty(M)
     M=1:n; % initial community affiliations 
-elseif numel(M)~=n
-    error('M must contain n elements.')
+% elseif numel(M)~=n
+%     error('M must contain n elements.')
 end
 
 if ~exist('Qthresh','var') || isempty(Qthresh)

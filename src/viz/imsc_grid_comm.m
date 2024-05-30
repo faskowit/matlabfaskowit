@@ -3,6 +3,10 @@ function [h, INDSORT, Nameticks] = imsc_grid_comm(dat,ca,lineWidth,color,offD,na
 % dat = your data
 % ca = community affliation of your vector
 
+if nargin < 2
+    error('need at least two args')
+end
+
 if ~iscolumn(ca) 
    ca = ca' ; 
 end
@@ -21,6 +25,10 @@ end
 
 if ~exist('names','var') || isempty(names)
    names = [] ; 
+end
+
+if size(dat,1) ~= length(ca)
+    error('sizes not the same')
 end
 
 % grid comms

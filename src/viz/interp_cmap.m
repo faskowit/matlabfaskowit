@@ -9,5 +9,3 @@ hsv=rgb2hsv([ startcolor ; endcolor ]);
 interhsv=interp1(linspace(0,1,2),hsv,linspace(0,1,ncolors));
 newcm=hsv2rgb(interhsv);
 
-
-
