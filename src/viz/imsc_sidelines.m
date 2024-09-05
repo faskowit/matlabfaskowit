@@ -59,11 +59,11 @@ for idx = 1:nc
         mn = min(ind) - 0.5;
         mx = max(ind) + 0.5;
 
-        xline(mn,'LineWidth',1,'Color',[1 1 1 0.5])
-        yline(mn,'LineWidth',1,'Color',[1 1 1 0.5])
+        h = xline(mn,'LineWidth',1,'Color',[1 1 1 0.5]); uistack(h,'top')
+        h = yline(mn,'LineWidth',1,'Color',[1 1 1 0.5]); uistack(h,'top')
 
-        xline(mx,'LineWidth',1,'Color',[1 1 1 0.5])
-        yline(mx,'LineWidth',1,'Color',[1 1 1 0.5])
+        h = xline(mx,'LineWidth',1,'Color',[1 1 1 0.5]); uistack(h,'top')
+        h = yline(mx,'LineWidth',1,'Color',[1 1 1 0.5]); uistack(h,'top')
 
     end
 end

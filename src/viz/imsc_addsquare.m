@@ -51,8 +51,8 @@ hbool = ishold() ;
 
 % draw it
 if ~hbool ; hold on ; end 
-line(X,Y,'Color',linecolor,'LineWidth',linewidth)
+h = line(X,Y,'Color',linecolor,'LineWidth',linewidth) ; uistack(h,'top')
 if mirrorit
-    line(Y,X,'Color',linecolor,'LineWidth',linewidth)
+    h = line(Y,X,'Color',linecolor,'LineWidth',linewidth) ;  ; uistack(h,'top')
 end
 if ~hbool ; hold off ; end 
