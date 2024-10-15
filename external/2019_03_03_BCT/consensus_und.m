@@ -43,6 +43,8 @@ function ciu = consensus_und(d,tau,reps)
 n = length(d); flg = 1;
 while flg == 1
     
+    disp('loop')
+
     flg = 0;
     dt = d.*(d >= tau).*~eye(n);
     if nnz(dt) == 0

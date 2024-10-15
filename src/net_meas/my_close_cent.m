@@ -21,7 +21,7 @@ end
 d = distance_wei_floyd(L) ;
 d(isinf(d)) = nan ; % if there are infs... make into nan
 dd = sum(d,2,'omitnan') ;
-dd(dd==0) = eps ; % if there are 0's (row of nan)... make tiny tiny number
+dd(dd==0) = nan ; 
 cc = 1./dd(:) ;
 
 end % end of closeness

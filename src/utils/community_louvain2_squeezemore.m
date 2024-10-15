@@ -14,15 +14,17 @@ end
 
 if ~exist('maxLoops','var') || isempty(maxLoops)
     maxLoops = 100 ; 
-end
+end%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%
 Q0 = -1; Q1 = 0;            % initialize modularity values
 loopCount = 0 ;
 
 % loop it
 while Q1-Q0>Qthresh           % while modularity increases
+    % disp([ 'louvain rep ' num2str(loopCount)])
+
     Q0 = Q1;                    
     [M, Q1] = community_louvain2(W, gamma, M, B);
 
