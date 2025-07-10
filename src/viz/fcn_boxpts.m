@@ -60,8 +60,8 @@ for j = 1:length(u)
     
     hdl.pointshandle{j} = scatter(xvals,vals,pointSZ,'filled');
     set(hdl.pointshandle{j},...
-        'markerfacecolor',cmap(j,:),'markerfacealpha',0.5,...
-        'markeredgecolor',cmap(j,:),'markeredgealpha',0.8);
+        'markerfacecolor',cmap(j,:),'markerfacealpha',0.2,...
+        'markeredgecolor',cmap(j,:),'markeredgealpha',0);
     
     xvals = j + [-wid,+wid,+wid,-wid,-wid];
     yvals = [prct(1),prct(1),prct(3),prct(3),prct(1)];

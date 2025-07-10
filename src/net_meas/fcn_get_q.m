@@ -1,7 +1,7 @@
 function [qcontributions,q,B] = fcn_get_q(W,M,B,gamma)
 %%FCN_GET_Q         get modularity of partition
 %
-%   Q = FCN_GET_Q(CI,AIJ) given a partition CI and adjacency matrix AIJ,
+%   Q = FCN_GET_Q(W,M,B,gamma) given a partition CI and adjacency matrix AIJ,
 %       compute the modularity score of the partition. This script is
 %       applicable to only symmetric networks.
 %
