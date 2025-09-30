@@ -178,8 +178,9 @@ function gtc = gaussian_total_correlation(X)
 end
 
 function g_mi = gaussian_mi(X,Y)
-    rho = corr(X',Y','type','Pearson');
-    g_mi = -0.5*log(1-(rho^2));
+    % rho = corr(X(:),Y(:),'type','Pearson');
+    % g_mi = -0.5*log(1-(rho^2));
+    g_mi = -0.5*log(1-(corr(X(:),Y(:))^2)) ; 
 end
 
     end

@@ -14,7 +14,8 @@ classdef local_o_lib_cv
 
 % pd = probability density 
 function pd = gaussian(x,mu,sigma)
-    pd = 1/(sigma * sqrt(2*pi)) * exp(-0.5*((x-mu)/sigma)^2);
+    % pd = 1./(sigma * sqrt(2*pi)) .* exp(-0.5.*((x-mu)./sigma).^2);
+    pd = normpdf(x) ; 
 end
 
 % The shannon information content of a single variable.
@@ -32,11 +33,11 @@ end
 %     sigma: A 2-by-one array giving the standard deviation of each dimension.
 %     rho: The Pearson correlation between both dimensions. 
 
-function pd2d = gaussian_2d(x,mu,sigma,rho)
+function pd2d = gaussian_2d(x,rho)
     norm = 1/(2*pi*sqrt(1-(rho^2)));
-    exp_upper = (x(1)^2) - (2*rho*x(1)*x(2)) + (x(2)^2);
+    exp_upper = (x(:,1).^2) - (2.*rho.*x(:,1).*x(:,2)) + (x(:,2).^2);
     exp_lower = 2 * (1-(rho^2));
-    pd2d = norm * exp(-1 *(exp_upper/exp_lower));
+    pd2d = norm .* exp(-1 *(exp_upper./exp_lower));
 end
 
 % The shannon information content of a single 2-dimensional variable.
@@ -190,8 +191,9 @@ function gtc = gaussian_total_correlation(X)
 end
 
 function g_mi = gaussian_mi(X,Y)
-    rho = corr(X',Y','type','Pearson');
-    g_mi = -0.5*log(1-(rho^2));
+    % rho = corr(X(:),Y(:),'type','Pearson');
+    % g_mi = -0.5*log(1-(rho^2));
+    g_mi = -0.5*log(1-(corr(X(:),Y(:))^2)) ; 
 end
 
     end

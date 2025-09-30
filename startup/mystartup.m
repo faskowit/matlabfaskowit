@@ -1,4 +1,7 @@
-
+% % make figures open in light mode
+% s = settings ; 
+% s.matlab.appearance.figure.GraphicsTheme.TemporaryValue = "light";
+% clear s
 
 % add some paths
 mydir = '~/joshstuff/matlabfaskowit' ;
