@@ -1,4 +1,4 @@
-function [h,hdl] = fcn_boxpts(x,lab,cmap,samenum,names)
+function [h,hdl] = fcn_boxpts(x,lab,cmap,names)
 % clear all
 % close all
 % clc
@@ -6,10 +6,10 @@ function [h,hdl] = fcn_boxpts(x,lab,cmap,samenum,names)
 % load boxdata.mat
 % x = mu;
 
-if ~exist('samenum','var')
-    samenum = 0;
-end
-h = hist(lab,1:max(lab));
+% if ~exist('samenum','var')
+%     samenum = 0;
+%     h = hist(lab,1:max(lab));
+% end
 
 sz = size(x);
 if sz(2) > 1
@@ -24,20 +24,19 @@ end
 
 iqr = [25,50,75];
 wid = 0.3;
-cmapdark = cmap - 0.25;
-cmapdark(cmapdark < 0) = 0;
+% cmapdark = cmap - 0.25;
+% cmapdark(cmapdark < 0) = 0;
 pointSZ = 100 ;
 
 % f = fcn_rickplot([2,2,4,2]);
 % ax = axes;
 % hold(ax,'on');
 % clf
-hold on
 
 u = unique(lab);
 
 for j = 1:length(u)
-    
+
     if ~exist('names','var')
         names{j} = sprintf('%i',j);
     end
@@ -49,10 +48,10 @@ for j = 1:length(u)
     whisk1 = min(vals);
     whisk2 = max(vals);
     
-    if samenum
-        r = randperm(length(vals),min(nonzeros(h)));
-        vals = vals(r);
-    end
+    % if samenum
+    %     r = randperm(length(vals),min(nonzeros(h)));
+    %     vals = vals(r);
+    % end
     
     xvals = j + linspace(-wid*0.5,wid*0.5,length(vals));
     s = randperm(length(xvals));
@@ -63,6 +62,8 @@ for j = 1:length(u)
         'markerfacecolor',cmap(j,:),'markerfacealpha',0.2,...
         'markeredgecolor',cmap(j,:),'markeredgealpha',0);
     
+    hold on
+
     xvals = j + [-wid,+wid,+wid,-wid,-wid];
     yvals = [prct(1),prct(1),prct(3),prct(3),prct(1)];
     hdl.boxhandle{j} = plot(xvals,yvals,'color','k','linewidth',0.75);

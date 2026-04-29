@@ -14,6 +14,8 @@ addpath(genpath([ mydir '/src/' ]))
 % % some inline functions
 % triunroll = @(x_) x_(logical(triu(ones(size(x_,1)),1))) ;
 
+% figure option
+set(groot, "defaultFigureWindowStyle", "normal");
 
 % FSL Setup
 setenv( 'FSLDIR', '/Users/faskowitzji/fsl' );
