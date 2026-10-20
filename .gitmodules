@@ -1,3 +1,6 @@
 [submodule "external/cmap"]
 	path = external/cmap
 	url = https://github.com/tsipkens/cmap.git
+[submodule "external/export_fig"]
+	path = external/export_fig
+	url = https://github.com/altmany/export_fig.git

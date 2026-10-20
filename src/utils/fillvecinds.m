@@ -8,7 +8,7 @@ if sum(inds) ~= length(dat(:))
     error('your using this function wrong')
 end
 if nargin < 3
-    initval = 1 ; 
+    initval = nan ; 
 end
 
 out = ones(length(inds),1) .* initval ; 
